@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js', //打包时 插件入口
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: './dist/',
+    publicPath: '/dist/',
     // filename: 'build.js',
     filename: 'vue-component-sync-tree.js',  //打包生成文件的名字
     library:'vueComponentSyncTree',   //reqire引入的名字
@@ -66,7 +66,11 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg|ttf|woff)$/,
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
