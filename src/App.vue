@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1 style="title">VUE-COMPONENT-SYNC-TREE</h1>
     <vueComponentSyncTree :data="originData" v-model="finalData"></vueComponentSyncTree>
   </div>
 </template>
@@ -37,7 +38,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  .title {
+    margin: 30px 0;
+    text-align: center;
+  }
 }
 </style>
 
