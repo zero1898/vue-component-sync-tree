@@ -2,7 +2,7 @@
 
 > 基于 vue 和 element-ui 的同步树组件
 
-[DEMO](./demo/index.html)
+[DEMO](https://zero1898.github.io/vue-component-sync-tree/demo/index.html)
 
 ### HOW TO USE
 
