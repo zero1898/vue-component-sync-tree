@@ -77,7 +77,17 @@
 
 <script>
 import Tool from '../tool';
-import { Tree, Checkbox, Icon, Input, Button, ButtonGroup } from 'element-ui';
+import ELTree from 'element-ui/lib/tree';
+import ELIcon from 'element-ui/lib/icon';
+import ELInput from 'element-ui/lib/input';
+import ELButton from 'element-ui/lib/button';
+import ELButtonGroup from 'element-ui/lib/button-group';
+
+import 'element-ui/lib/theme-chalk/tree.css';
+import 'element-ui/lib/theme-chalk/icon.css';
+import 'element-ui/lib/theme-chalk/input.css';
+import 'element-ui/lib/theme-chalk/button.css';
+import 'element-ui/lib/theme-chalk/button-group.css';
 
 export default {
     name: 'vueComponentSyncTree',
@@ -118,12 +128,11 @@ export default {
         };
     },
     components: {
-        elTree: Tree,
-        Checkbox,
-        Icon,
-        elInput: Input,
-        elButton: Button,
-        elButtonGroup: ButtonGroup
+        [ELTree.name]: ELTree,
+        [ELIcon.name]: ELIcon,
+        [ELInput.name]: ELInput,
+        [ELButton.name]: ELButton,
+        [ELButtonGroup.name]: ELButtonGroup
     },
     computed: {
         // 源列表数据
