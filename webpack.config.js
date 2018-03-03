@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js', //打包时 插件入口
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: './',
+    publicPath: '',
     // filename: 'build.js',
     filename: 'vue-component-sync-tree.js',  //打包生成文件的名字
     library:'vueComponentSyncTree',   //reqire引入的名字
