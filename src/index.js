@@ -1,4 +1,4 @@
-import vueComponentSyncTree from './component/vue-component-sync-tree.vue';
+import vueComponentSyncTree from './vue-component-sync-tree.vue';
 
 const componentSyncTree = {
   install(Vue, options) {

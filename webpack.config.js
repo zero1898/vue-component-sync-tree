@@ -2,16 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  // entry: './src/main.js',//npm run dev时 demo调试的入口
-  entry: './src/index.js', //打包时 插件入口
+  entry: './app/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    // filename: 'build.js',
-    filename: 'vue-component-sync-tree.js',  //打包生成文件的名字
-    library:'vueComponentSyncTree',   //reqire引入的名字
-    libraryTarget:'umd',
-    umdNamedDefine:true
+    filename: 'build.js'
   },
   module: {
     rules: [

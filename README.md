@@ -2,15 +2,18 @@
 
 > 基于 vue 和 element-ui 的同步树组件
 
-[DEMO](https://zero1898.github.io/vue-component-sync-tree/demo/index.html)
+[DEMO](https://zero1898.github.io/vue-component-sync-tree/index.html)
 
 ### HOW TO USE
 
 ```javascript
 npm install vueComponentSyncTree -S
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import vueComponentSyncTree from 'vue-component-sync-tree';
 
+Vue.use(ElementUI);
 Vue.use(vueComponentSyncTree);
 ```
 

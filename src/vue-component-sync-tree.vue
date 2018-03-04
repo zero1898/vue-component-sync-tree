@@ -8,7 +8,7 @@
         </div>
         <div class="tree-cut">
             <i class="ivu-icon ivu-icon-ios-arrow-right"></i>
-            <Icon class="el-icon-arrow-right"></Icon>
+            <el-icon class="el-icon-arrow-right"></el-icon>
         </div>
         <div class="final-tree tree-item">
             <div class="tree-header">目的列表</div>
@@ -18,19 +18,19 @@
                         <li v-for="item of finalTree" :key="item.id">
                             <span class="item-text">{{ item.title }}</span>
                             <span class="item-edit" @click.stop="popEditModal(item.id, item.title)">
-                                <Icon class="el-icon-edit"></Icon>
+                                <el-icon class="el-icon-edit"></el-icon>
                             </span>
                             <span class="item-del" @click.stop="popDelModal(item.id, item.pid)">
-                                <Icon class="el-icon-delete"></Icon>
+                                <el-icon class="el-icon-delete"></el-icon>
                             </span>
                             <ul style="margin-left:20px;">
                                 <li v-for="child of item.children" :key="child.id">
                                     <span class="item-text">{{ child.title }}</span>
                                     <span class="item-edit" @click.stop="popEditModal(child.id, child.title)">
-                                        <Icon class="el-icon-edit"></Icon>
+                                        <el-icon class="el-icon-edit"></el-icon>
                                     </span>
                                     <span class="item-del" @click.stop="popDelModal(child.id, child.pid)">
-                                        <Icon class="el-icon-delete"></Icon>
+                                        <el-icon class="el-icon-delete"></el-icon>
                                     </span>
                                 </li>
                             </ul>
@@ -55,7 +55,7 @@
                 <div class="del-mask" v-if="delShow">
                     <div class="del-wrapper">
                         <div class="del-text">
-                            <Icon class="el-icon-warning"></Icon>
+                            <el-icon class="el-icon-warning"></el-icon>
                             是否删除
                         </div>
                         <div class="del-opra-wrapper">
@@ -76,18 +76,14 @@
 </template>
 
 <script>
-import Tool from '../tool';
+import Tool from './tool';
 import ELTree from 'element-ui/lib/tree';
 import ELIcon from 'element-ui/lib/icon';
 import ELInput from 'element-ui/lib/input';
 import ELButton from 'element-ui/lib/button';
 import ELButtonGroup from 'element-ui/lib/button-group';
 
-import 'element-ui/lib/theme-chalk/tree.css';
-import 'element-ui/lib/theme-chalk/icon.css';
-import 'element-ui/lib/theme-chalk/input.css';
-import 'element-ui/lib/theme-chalk/button.css';
-import 'element-ui/lib/theme-chalk/button-group.css';
+require('../lib/vue-component-sync-tree.css');
 
 export default {
     name: 'vueComponentSyncTree',
@@ -132,7 +128,7 @@ export default {
         [ELIcon.name]: ELIcon,
         [ELInput.name]: ELInput,
         [ELButton.name]: ELButton,
-        [ELButtonGroup.name]: ELButtonGroup
+        [ELButtonGroup.name]: ELButtonGroup,
     },
     computed: {
         // 源列表数据
@@ -303,142 +299,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss">
-.v-component-sync-tree {
-    ul,
-    li {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        text-align: left;
-    }
-    overflow: hidden;
-    width: 630px;
-    height: 500px;
-    margin: 0 auto;
-    .tree-cut {
-        box-sizing: border-box;
-        display: inline-block;
-        height: 20px;
-        width: 20px;
-        text-align: center;
-        font-size: 30px;
-    }
-    .tree-item {
-        box-sizing: border-box;
-        display: inline-block;
-        width: 40%;
-        height: 100%;
-        font-size: 14px;
-        vertical-align: middle;
-        position: relative;
-        padding-top: 35px;
-        .tree-header {
-            box-sizing: border-box;
-            background: #f9fafc;
-            height: 35px;
-            line-height: 35px;
-            color: #495060;
-            border: 1px solid #dddee1;
-            border-bottom: 1px solid #e9eaec;
-            overflow: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        .tree-body {
-            height: 100%;
-            box-sizing: border-box;
-            border: 1px solid #dddee1;
-            border-top: none;
-            position: relative;
-            overflow: auto;
-            background-color: #fff;
-            .body-main {
-                box-sizing: border-box;
-                padding: 8px 10px 8px 20px;
-                width: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                overflow: auto;
-            }
-        }
-    }
-    .origin-tree {
-        .el-tree {
-            border: none;
-        }
-    }
-    .final-tree {
-        font-size: 14px;
-        line-height: 2;
-        .tree-body {
-            padding: 8px 10px 8px 20px;
-            .item-text {
-                display: inline-block;
-                max-width: 200px;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                vertical-align: middle;
-            }
-            .item-del,
-            .item-edit {
-                color: #409eff;
-                vertical-align: middle;
-                display: inline-block;
-                cursor: pointer;
-                width: 20px;
-                text-align: center;
-            }
-            .del-mask,
-            .edit-mask {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.4);
-                .del-wrapper,
-                .edit-wrapper {
-                    margin: 100px auto 0;
-                    width: 90%;
-                    height: 150px;
-                    background-color: #fff;
-                    border-radius: 6px;
-                    padding: 10px;
-                    .del-text,
-                    .edit-input {
-                        display: block;
-                        width: 90%;
-                        margin: 30px auto;
-                    }
-                    .del-text {
-                        text-align: center;
-                        color: #3c8dbc;
-                    }
-                    .del-opra-wrapper,
-                    .edit-opra-wrapper {
-                        text-align: center;
-                        .ivu-btn-group {
-                            width: 80%;
-                        }
-                        .del-cancel,
-                        .del-ok,
-                        .edit-cancel,
-                        .edit-ok {
-                            width: 50%;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-</style>
